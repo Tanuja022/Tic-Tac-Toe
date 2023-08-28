@@ -26,15 +26,19 @@ const checkwin=()=>{
         if((boxtext[e[0]].innerText===boxtext[e[1]].innerText) && (boxtext[e[2]].innerText===boxtext[e[1]].innerText) && (boxtext[e[0]].innerText !=="")){
            
              document.querySelector('.info').innerText="Congratulations "+boxtext[e[0]].innerText  +  " won "
-            //window.alert("X xon");
+            // window.alert("X xon");
             gameover=false;
             if(checkwin()==true){
+                
             gameover==true;
+            
         }
             }
         if((boxtext[e[0]].innerText===boxtext[e[1]].innerText) && (boxtext[e[2]].innerText===boxtext[e[1]].innerText) && (boxtext[e[0]].innerText !=="")){
             document.querySelector('.info')
         }
+
+       
         
         })
         
@@ -57,11 +61,27 @@ element.addEventListener('click',()=>{
            document.getElementsByClassName("info")[0].innerText="Player " +turn;
         }
         
+        
     }
+    else{
+        let boxtexts=document.querySelectorAll('.boxtext');
+        Array.from(boxtexts).forEach(element =>{
+            element.innerText=" "
+        })
+        turn="X"
+        gameover=false;
+        document.getElementsByClassName("info")[0].innerText="congratulations " +boxtext[[0]].innerText  +  " won ";
+        document.getElementsByClassName("info")[0].innerText="Turn for  " +turn;
+       
+    }
+
+    
+    
 })
 })
 
 //Add reset
+
 
 reset.addEventListener('click',()=>{
     let boxtexts=document.querySelectorAll('.boxtext');
@@ -71,11 +91,12 @@ reset.addEventListener('click',()=>{
     turn="X"
     gameover=false;
     document.getElementsByClassName("info")[0].innerText="Turn for  " +turn;
-
+        
 })
 
 //let Reset=document.getElementById('reset')
 reset.addEventListener('click',function(){
     console.log("you have to clicked the reset button...")
 })
+
 //console.log(Reset)
